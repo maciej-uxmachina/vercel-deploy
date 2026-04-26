@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Page() {
   await ensureTable();
-  const { rows } = await sql`SELECT * FROM todos ORDER BY created_at DESC`;
+  const rows = await sql`SELECT * FROM todos ORDER BY created_at DESC`;
   return <TodoList initialTodos={rows as Todo[]} />;
 }
 
